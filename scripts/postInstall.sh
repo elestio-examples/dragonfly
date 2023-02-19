@@ -9,7 +9,7 @@ target=$(docker-compose port manager 8080)
 
 curl http://${target}/installation
 
-login=$(curl http://${target}/api/v1/users/signin \
+login=$(curl https://${DOMAIN}/api/v1/users/signin \
   -H 'accept: application/json' \
   -H 'accept-language: fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,he;q=0.6' \
   -H 'content-type: application/json;charset=UTF-8' \
@@ -19,7 +19,7 @@ login=$(curl http://${target}/api/v1/users/signin \
 
 access_token=$(echo $login | jq -r '.token' )
   
-  curl http://${target}/api/v1/configs \
+  curl https://${DOMAIN}/api/v1/configs \
   -H 'accept: application/json' \
   -H 'accept-language: fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,he;q=0.6' \
   -H 'content-type: application/json;charset=UTF-8' \

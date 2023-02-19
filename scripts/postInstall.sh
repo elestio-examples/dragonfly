@@ -19,7 +19,7 @@ login=$(curl http://${target}/api/v1/users/signin \
 access_token=$(echo $login | jq -r '.token' )
 
 
-curl https://${target}/api/v1/users/1/reset_password \
+curl http://${target}/api/v1/users/1/reset_password \
   -H 'cookie: jwt='${access_token}'' \
   -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36' \
   --data-raw '{"old_password":"dragonfly","new_password":"'${ADMIN_PASSWORD}'","confirm_password":"'${ADMIN_PASSWORD}'"}' \

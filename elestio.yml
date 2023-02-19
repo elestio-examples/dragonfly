@@ -12,7 +12,7 @@ environments:
     value: "random_password"
   - key: "ADMIN_EMAIL"
     value: "[EMAIL]"
-  - key: "DOMAIN"
+  - key: "CI_CD_DOMAIN"
     value: "[CI_CD_DOMAIN]"
 
 config:

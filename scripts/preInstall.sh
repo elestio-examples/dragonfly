@@ -1,3 +1,5 @@
+apt install jq -y
+
 mkdir -p ./config
 
 ip="172.17.0.1"

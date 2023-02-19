@@ -9,7 +9,7 @@ target=$(docker-compose port manager 8080)
 
 curl http://${target}/installation
 
-login=$(curl https://${CI_CD_DOMAIN}/api/v1/users/signin \
+login=$(curl http://${target}/api/v1/users/signin \
   -H 'accept: application/json' \
   -H 'accept-language: fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,he;q=0.6' \
   -H 'content-type: application/json;charset=UTF-8' \
@@ -19,7 +19,7 @@ login=$(curl https://${CI_CD_DOMAIN}/api/v1/users/signin \
 
 access_token=$(echo $login | jq -r '.token' )
   
-  curl https://${CI_CD_DOMAIN}/api/v1/configs \
+  curl http://${target}/api/v1/configs \
   -H 'accept: application/json' \
   -H 'accept-language: fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,he;q=0.6' \
   -H 'content-type: application/json;charset=UTF-8' \
@@ -30,14 +30,14 @@ access_token=$(echo $login | jq -r '.token' )
 
 
 
-curl https://${CI_CD_DOMAIN}/api/v1/users/1/reset_password \
--H 'authority: '${CI_CD_DOMAIN}'' \
+curl http://${target}/api/v1/users/1/reset_password \
+-H 'authority: '${target}'' \
   -H 'accept: application/json' \
   -H 'accept-language: fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,he;q=0.6' \
   -H 'content-type: application/json;charset=UTF-8' \
   -H 'cookie: jwt='${access_token}'' \
-  -H 'origin: https://'${CI_CD_DOMAIN}'' \
-  -H 'referer: https://'${CI_CD_DOMAIN}'/profile/1' \
+  -H 'origin: http://'${target}'' \
+  -H 'referer: http://'${target}'/profile/1' \
   -H 'sec-ch-ua: "Not_A Brand";v="99", "Google Chrome";v="109", "Chromium";v="109"' \
   -H 'sec-ch-ua-mobile: ?0' \
   -H 'sec-ch-ua-platform: "Windows"' \

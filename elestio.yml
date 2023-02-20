@@ -10,10 +10,6 @@ ports:
 environments:
   - key: "ADMIN_PASSWORD"
     value: "random_password_16"
-  - key: "ADMIN_EMAIL"
-    value: "[EMAIL]"
-  - key: "CI_CD_DOMAIN"
-    value: "[CI_CD_DOMAIN]"
 
 config:
   runTime: "dockerCompose"
@@ -23,7 +19,7 @@ config:
   buildDir: "/"
   runCommand: "docker-compose up -d"
   icon: ""
-  screenshot: "dragonfly2.svg"
+  screenshot: "dragonfly.svg"
 lifeCycleConfig:
   preInstallCommand: "./scripts/preInstall.sh"
   postInstallCommand: "./scripts/postInstall.sh"
@@ -35,5 +31,5 @@ lifeCycleConfig:
 webUI:
   - url: "https://[CI_CD_DOMAIN]"
     label: "Dragonfly Admin"
-    login: "[ADMIN_EMAIL]"
+    login: "root"
     password: "[ADMIN_PASSWORD]"

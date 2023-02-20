@@ -13,9 +13,9 @@ Deploy Dragonfly server with CI/CD on Elestio
 You can can open Dragonfly UI here:
 
     URL: https://[CI_CD_DOMAIN]
-    login:[ADMIN_EMAIL]
+    login: root
     password: [ADMIN_PASSWORD]
 
 # Documentation
 
-https://docs.zinc.dev/quickstart/
+https://d7y.io/docs/

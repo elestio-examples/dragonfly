@@ -10,7 +10,7 @@ Deploy Dragonfly server with CI/CD on Elestio
 
 # Once deployed ...
 
-You can can open Dragonfly UI here:
+You can open Dragonfly UI here:
 
     URL: https://[CI_CD_DOMAIN]
     login: root

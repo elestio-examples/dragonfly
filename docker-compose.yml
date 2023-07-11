@@ -32,7 +32,7 @@ services:
       - 3306:3306
 
   manager:
-    image: dragonflyoss/manager:latest
+    image: dragonflyoss/manager:${SOFTWARE_VERSION_TAG}
     # container_name: manager
     depends_on:
       - redis
@@ -51,7 +51,7 @@ services:
       - 172.17.0.1:8484:8080
 
   dfdaemon:
-    image: dragonflyoss/dfdaemon:latest
+    image: dragonflyoss/dfdaemon:${SOFTWARE_VERSION_TAG}
     depends_on:
       - manager
       - scheduler
@@ -72,7 +72,7 @@ services:
       - 65002:65002
 
   scheduler:
-    image: dragonflyoss/scheduler:latest
+    image: dragonflyoss/scheduler:${SOFTWARE_VERSION_TAG}
     depends_on:
       - manager
     # container_name: scheduler
@@ -89,7 +89,7 @@ services:
       - 8002:8002
 
   seed-peer:
-    image: dragonflyoss/dfdaemon:latest
+    image: dragonflyoss/dfdaemon:${SOFTWARE_VERSION_TAG}
     depends_on:
       - manager
       - scheduler
